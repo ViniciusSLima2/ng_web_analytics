@@ -1,0 +1,11 @@
+.page-container{
+    background-color: var(--secondary-color);
+    min-height: 100vh;
+    display: flex;
+
+}
+
+.content-container{
+    padding: 40px;
+    width: 100%;
+}

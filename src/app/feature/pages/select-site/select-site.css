@@ -1,0 +1,17 @@
+.cards-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    & h1{
+        font-size: 32px;
+        font-weight: 700;
+        color: #2e2e2e;
+    }
+}

@@ -1,0 +1,18 @@
+<div class="chart-container container">
+  <div class="choro-container">
+    <plotly-plot
+      [data]="data()"
+      [layout]="layout"
+      [config]="config">
+    </plotly-plot>
+  </div>
+
+  <div class="meter-group-container">
+    @for(item of percentageMeterValues(); track item.label){
+      <p-metergroup [value]="[item]" labelPosition="start" labelOrientation="vertical"></p-metergroup>
+    }
+  </div>
+
+
+</div>
+

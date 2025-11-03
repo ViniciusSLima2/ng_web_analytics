@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Geist';
+}
+
+:root{
+    /* Cores */
+    --primary-color-darker: #1d4db6;
+    --primary-color: #2563eb;
+    --primary-color-80: #2563eb80;
+    --primary-color-60: #2563eb60;
+    --primary-color-40: #2563eb40;
+    --primary-color-20: #2563eb20;
+    --secondary-color: #F3F4F6;
+    --primary-text-color: #111827;
+    --secondary-text-color: #6B7280;
+    --grey-hover-color: #D1D5DB;
+    --sucess-color: #10B981;
+    --danger-color: #EF4444;
+    --warning-color: #F59E0B;
+    --info-color: #3B82F6;
+    --background-primary-color: rgb(37, 99, 235, 0.07);
+
+    /* Espaçamento */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+
+    /* Fontes */
+    --font-base: 'Inter', sans-serif;
+    --font-size-base: 16px;
+    --font-size-heading: 24px;
+
+    /* Borders */
+    --border-radius-base: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-xl: 16px;
+
+    /* Tags Color */
+    --color-status-pending: #F59E0B; /* Amarelo */
+    --color-status-confirmed: #10B981; /* Verde */
+    --color-status-canceled: #EF4444; /* Vermelho */
+    --color-status-finished: #3B82F6; /* Azul */
+    --color-status-available: #37ff00; /* Azul */
+}
+
+@font-face {
+  font-family: 'Geist';
+  src: url('assets/fonts/Geist/Geist-VariableFont_wght.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}

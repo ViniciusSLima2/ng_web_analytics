@@ -1,0 +1,86 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    & h1{
+        font-size: 24px;
+        font-weight: 500;
+        color: #2e2e2e;
+
+        & span{
+            font-size: 32px;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+    }
+
+    & .content-container{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        & .simple-cards-wrapper{
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+    }
+}
+
+.filter-container{
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    & .filter-title{
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+}
+
+.container1{
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+
+    & .side{
+        width: calc(50% - 10px);
+    }
+}
+
+.range-filter-text{
+    font-size: 14px;
+    color: #555555;
+}
+
+.container ::ng-deep .chart-container{
+    background-color: #ffffffd5;
+    border-radius: 12px;
+    width: 100%;    
+    min-width: 300px;
+}
+
+.container .chart-container{
+    padding: 20px;
+
+}
+
+.active-filter-item{
+    background-color: #fff;
+    padding: 10px 10px;
+    border-radius: 8px;
+}
+
+.invs{
+    display: none;
+}
+
+@media (max-width: 900px) {
+
+
+    .container1 .side{
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,26 @@
+.card-container{
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 400px;
+    padding: 15px;
+    border: 1px solid #ececec;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    & .title{
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+
+    & .url{
+        font-size: 14px;
+        color: var(--secondary-text-color);
+    }
+}
+
+.card-container:hover{
+    transform: scale(1.01);
+}

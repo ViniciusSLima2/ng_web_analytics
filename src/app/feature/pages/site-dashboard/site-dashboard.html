@@ -1,0 +1,72 @@
+@if(isLoadingData()){
+    <app-loading-skeleton></app-loading-skeleton>
+}
+
+
+<div class="container" [class.invs]="isLoadingData()">
+    <h1>Dashboard - <span>{{siteData().metadata.name}}</span></h1>
+    <div class="filter-container">
+        <p class="filter-title">Filtrar:</p>
+        <div class="date-picker-wrapper">
+            <label for="dateRangePicker">Selecione o intervalo de datas:</label><br/>
+            <p-datepicker [(ngModel)]="dateFilter" selectionMode="range"  dateFormat="dd/mm/yy" [showClear]="true" placeholder="Selecione" (onClear)="resetDataFilter()">
+                <ng-template #footer>
+                    <p class="range-filter-text">Filtros:</p>
+                    <p-selectbutton [options]="timeRangePrimengOptions" [(ngModel)]="dateFilter" optionLabel="label" optionValue="value"/>
+                </ng-template>
+            </p-datepicker>
+        </div>
+
+        <div class="active-filters-container">
+            @if(activeFilter()[0] !== 0 && activeFilter()[1] !== 0){
+                <p>Filtros ativos:</p>
+                <span class="active-filter-item">
+                    <i class="pi pi-calendar"></i>
+                    {{activeFilter()[0] | date: 'dd/MM/yyyy'}} - {{activeFilter()[1] | date: 'dd/MM/yyyy'}}
+                    <button type="button" pButton pRipple icon="pi pi-times" class="p-button-text p-button-plain p-button-rounded ml-2" (click)="resetDataFilter()"></button>
+                </span>
+            }
+
+
+        </div>
+    </div>
+    <div class="content-container">
+        <div class ="simple-cards-wrapper">
+            <app-metric-simple-card [data]="totalVisitorsCardData()"></app-metric-simple-card>
+            <app-metric-simple-card [data]="visitorsAveragePerDayCardData()"></app-metric-simple-card>
+            <app-metric-simple-card [data]="daysCountCardData()"></app-metric-simple-card>
+            <app-metric-simple-card [data]="peakVisitorsDay()"></app-metric-simple-card>
+        </div>
+
+        <div class="container1">
+            <div class="chart-container side" style="height:360px">
+                <app-timeseries-chart [timeseriesData]="this.siteData().timeseries"></app-timeseries-chart>
+            </div>
+
+            <div class="chart-container side" style="height:360px">
+                <app-referrer-chart [referrersData]="this.siteData().referrers"></app-referrer-chart>
+            </div>
+        </div>
+
+        <div class="container1">
+            <div class="chart-container side" style="height: initial !important;">
+                <app-new-vs-returning-chart [chartData]="this.siteData().engagement"></app-new-vs-returning-chart>
+            </div>
+
+            <div class="chart-container side" >
+                <app-devices-chart [chartData]="this.siteData().devicesOverview"></app-devices-chart>
+            </div>
+        </div>
+
+        <div class="chart-container" >
+            <app-group-table [tableData]="this.siteData().pagesOverview"></app-group-table>
+        </div>
+
+
+        <div class="chart-container" style="height: 100%;">
+            <app-geo-charts [geoData]="this.siteData().geoData"></app-geo-charts>
+        </div>
+
+    </div>
+</div>
+

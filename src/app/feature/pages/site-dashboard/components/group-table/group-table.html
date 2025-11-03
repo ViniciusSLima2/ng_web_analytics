@@ -1,0 +1,74 @@
+<div class="container chart-container">
+    <h2>Visão Geral das Páginas</h2>
+
+    <p-table #dt [value]="tableData()" [paginator]="true" [rows]="rows()" sortField="date" sortMode="single" dataKey="date" rowGroupMode="subheader" groupRowsBy="date" scrollable="scroll"> 
+        <ng-template #header>
+            <tr>
+                <th style="width:20%">Página</th>
+                <th style="width:20%">Visualizações</th>
+                <th style="width:20%">Entradas</th>
+                <th style="width:20%">Saídas</th>
+                <th style="width:20%">Bounce Rate</th>
+            </tr>
+        </ng-template>
+        <ng-template #groupheader let-page_overview let-rowIndex="rowIndex" let-expanded="expanded">
+            <tr>
+                <td colspan="5">
+                    <button
+                        type="button"
+                        pButton
+                        pRipple
+                        [pRowToggler]="page_overview"
+                        text
+                        rounded
+                        plain
+                        class="mr-2"
+                        [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
+                    </button>
+                    <span class="font-bold ml-2"> {{page_overview.date | date: 'dd/MM/yyyy'}}</span>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template #groupfooter let-page_overview>
+            <tr class="p-rowgroup-footer" style="background-color: rgb(204, 220, 233)">
+                <td > - </td>
+                <td >Soma: {{calculateTotal('views', page_overview.date)}}</td>
+                <td >Soma: {{calculateTotal('entries', page_overview.date)}}</td>
+                <td >Soma: {{calculateTotal('exits', page_overview.date)}}</td>
+                <td >Média: {{calculateBounceRateAveragePerDate(page_overview.date)}}%</td>
+            </tr>
+        </ng-template>
+        <ng-template #expandedrow let-page_overview>
+            <tr style="background-color: aliceblue;">
+                <td>
+                    {{page_overview.page}}
+                </td>
+                <td>
+                    {{page_overview.views}}
+                </td>
+                <td>
+                    {{page_overview.entries}}
+                </td>
+                <td>
+                    {{page_overview.exits}}
+                </td>
+                <td>
+                    {{page_overview.bounce_rate}}%
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template #paginatorright>
+            <div class="p-d-flex p-ai-center">
+                <span style="margin-right:.5rem">Itens por página:</span>
+
+                <p-select
+                    [options]="rowsOptions()"
+                    [ngModel]="rows()"
+                    optionLabel="label"
+                    optionValue="value"
+                    (onChange)="onRowsChange($event.value)">
+                </p-select>
+            </div>
+        </ng-template>
+    </p-table>
+</div>

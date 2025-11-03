@@ -1,0 +1,15 @@
+<div class="side-bar-container" #sideBarContainer>
+    <div class="header-container">
+        <img ngSrc='monitor.avif' width="50" height="50"/>
+        <p>NG Web Analytics</p>
+    </div>
+    <nav class="side-bar">
+        <ul>
+            @for(route of routes; track route.url){
+                <li><a routerLink="{{route.url}}" [class.active]="route.url === currentRoute()">{{route.label}}</a></li>
+            }
+        </ul>
+    </nav>
+</div>
+
+
