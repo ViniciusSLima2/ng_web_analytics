@@ -1,50 +1,63 @@
-📊 O que é
-Uma plataforma de análise de tráfego web construída em Angular 19 (standalone components + signals) que exibe estatísticas e métricas de sites cadastrados, similar a um Google Analytics simplificado.
+# NG Web Analytics - Documentação do Projeto
 
-🎯 Funcionalidades Principais
-1. Seleção de Sites (/)
-Lista todos os sites cadastrados em cards clicáveis
-Cada card exibe nome e domínio do site
-2. Dashboard de Análise (/dashboard/:id)
-Painel completo com:
+## 📋 Visão Geral
 
-📈 Métricas Simples (Cards)
-Total de acessos
-Média de acessos/dia
-Dias com site online
-Dia com pico de visitas
-📊 Gráficos Interativos (Chart.js + Plotly)
-Série Temporal - Visitas ao longo do tempo (linha)
-Referrers - Sites que geraram tráfego (barras)
-Novos vs Retornantes - Pizza comparando visitantes
-Dispositivos - Pizza com desktop/mobile/tablet
-Geo-localização - Mapa coroplético mundial
-Tabela de Páginas - Visualizações/entradas/saídas/bounce rate por página
-🔍 Filtros de Data
-Últimos 7/30/90 dias
-Intervalo customizado (date range picker)
-Todos os tempos
-🛠️ Stack Técnica
-Tecnologia	Uso
-Angular 19	Framework principal (zoneless + signals)
-PrimeNG	Componentes UI (tabelas, filtros, skeletons)
-Chart.js (ng2-charts)	Gráficos de linha/pizza/barra
-Plotly.js	Mapa geográfico
-RxJS	Requisições HTTP + resolvers
-Python/Flask API	Backend (pythonanywhere.com)
-📂 Arquitetura
-🔄 Fluxo de Dados
-Usuário acessa / → carrega lista de sites via Analytics.getSitesMetadata()
-Clica em um site → navega para /dashboard/:id
-siteDataResolver faz 8 requisições paralelas (forkJoin) antes de renderizar
-Dashboard exibe dados e aguarda filtros de data
-Ao aplicar filtro → nova requisição busca dados filtrados (startDate/endDate)
-🎨 Destaques de Código
-Signals nativos para reatividade (signal(), computed(), effect())
-Standalone components (sem NgModules)
-Lazy loading com loadComponent()
-Skeleton loaders durante carregamento
-Responsive design (media queries para mobile)
-Scroll sincronizado na sidebar
-🚀 Objetivo
-Fornecer insights acionáveis sobre tráfego web através de visualizações intuitivas, com performance otimizada (zoneless change detection) e UX moderna.
+Uma **plataforma de análise de tráfego web** construída em **Angular 19** (standalone components + signals) que exibe estatísticas e métricas de sites cadastrados, similar a um Google Analytics simplificado.
+
+---
+
+## 🎯 Funcionalidades Principais
+
+### 1. Seleção de Sites (`/`)
+- Lista todos os sites cadastrados em cards clicáveis
+- Cada card exibe nome e domínio do site
+- Interface responsiva com grid flexível
+
+### 2. Dashboard de Análise (`/dashboard/:id`)
+
+#### 📈 Métricas Simples (Cards)
+- **Total de acessos** - Soma de todas as visitas
+- **Média de acessos/dia** - Cálculo da média diária
+- **Dias com site online** - Contagem de dias ativos
+- **Dia com pico de visitas** - Data com maior tráfego
+
+#### 📊 Gráficos Interativos
+Visualizações usando Chart.js e Plotly:
+
+1. **Série Temporal** - Gráfico de linha com evolução de visitas ao longo do tempo
+2. **Referrers** - Gráfico de barras mostrando sites que geraram tráfego
+3. **Novos vs Retornantes** - Pizza comparando novos visitantes e recorrentes
+4. **Dispositivos** - Pizza com distribuição desktop/mobile/tablet
+5. **Geo-localização** - Mapa coroplético mundial com distribuição geográfica
+6. **Tabela de Páginas** - Análise detalhada por página com:
+   - Visualizações (pageviews)
+   - Entradas (entry)
+   - Saídas (exit)
+   - Taxa de rejeição (bounce rate)
+
+#### 🔍 Filtros de Data
+- **Últimos 7 dias**
+- **Últimos 30 dias**
+- **Últimos 90 dias**
+- **Intervalo customizado** (date range picker)
+- **Todos os tempos** (padrão)
+
+---
+
+## 🛠️ Stack Técnica
+
+| Tecnologia | Versão/Biblioteca | Uso |
+|------------|-------------------|-----|
+| **Angular** | 19.x | Framework principal (zoneless + signals) |
+| **TypeScript** | ~5.6.2 | Linguagem de programação |
+| **PrimeNG** | ^19.0.1 | Componentes UI (tabelas, filtros, skeletons) |
+| **Chart.js** | ^4.4.7 | Gráficos de linha/pizza/barra |
+| **ng2-charts** | ^7.0.0 | Wrapper Angular para Chart.js |
+| **Plotly.js** | ^2.35.3 | Mapas geográficos interativos |
+| **angular-plotly.js** | ^5.3.0 | Wrapper Angular para Plotly |
+| **RxJS** | ~7.8.0 | Requisições HTTP + resolvers |
+| **Python/Flask** | - | Backend API (pythonanywhere.com) |
+
+---
+
+## 📂 Arquitetura do Projeto
