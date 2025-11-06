@@ -77,10 +77,11 @@
 }
 
 @media (max-width: 900px) {
-
-
     .container1 .side{
         width: 100%;
     }
 
+    .geo-chart{
+        display: none;
+    }
 }

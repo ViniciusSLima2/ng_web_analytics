@@ -22,5 +22,5 @@
 }
 
 .card-container:hover{
-    transform: scale(1.01);
+    background-color: #e5e5e5;
 }
