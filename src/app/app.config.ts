@@ -7,8 +7,6 @@ import Aura from '@primeuix/themes/aura';
 import { providePrimeNG } from 'primeng/config';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { PlotlyModule } from 'angular-plotly.js';
-import * as PlotlyJS from 'plotly.js-dist';
 const atendeplusThemePreset = definePreset(Aura, {
   semantic: {
     primary: palette('#2563EB')
@@ -30,8 +28,5 @@ export const appConfig: ApplicationConfig = {
     }),
     provideCharts(withDefaultRegisterables()),
     provideAnimationsAsync(),
-    importProvidersFrom(
-      PlotlyModule.forRoot(PlotlyJS)  // registra o Plotly
-    )
   ]
 };

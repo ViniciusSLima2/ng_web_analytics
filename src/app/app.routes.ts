@@ -5,7 +5,7 @@ import { siteDataResolver } from './core/resolvers/site-data-resolver';
 export const routes: Routes = [
     {
         path: '',
-        component: DashboardLayout,
+        loadComponent: () => import('./shared/components/dashboard-layout/dashboard-layout').then(m => m.DashboardLayout),
         children: [
             {
                 path: '',

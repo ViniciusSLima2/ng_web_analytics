@@ -1,15 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed, effect, input, signal } from '@angular/core';
-import { PlotlyModule } from 'angular-plotly.js';
 import { MeterGroupModule, MeterItem } from 'primeng/metergroup';
+// 1. As importações só existem AQUI
+import { PlotlyModule } from 'angular-plotly.js';
+import * as PlotlyJS from 'plotly.js-dist-min';
+
+// 2. O registro do Plotly só acontece AQUI
+PlotlyModule.forRoot(PlotlyJS)
 @Component({
   selector: 'app-geo-charts',
-  imports: [PlotlyModule, MeterGroupModule, CommonModule],
+  imports: [PlotlyModule, MeterGroupModule, CommonModule, PlotlyModule],
   templateUrl: './geo-charts.html',
   styleUrl: './geo-charts.css'
 })
 export class GeoCharts {
-
   geoData = input.required<any[]>();
   data = signal([{
     type: 'choropleth',
