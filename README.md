@@ -1,59 +1,63 @@
-# NgWebAnalytics
+# NG Web Analytics - Documentação do Projeto
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.6.
+## 📋 Visão Geral
 
-## Development server
+Uma **plataforma de análise de tráfego web** construída em **Angular 19** (standalone components + signals) que exibe estatísticas e métricas de sites cadastrados, similar a um Google Analytics simplificado.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## 🎯 Funcionalidades Principais
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### 1. Seleção de Sites (`/`)
+- Lista todos os sites cadastrados em cards clicáveis
+- Cada card exibe nome e domínio do site
+- Interface responsiva com grid flexível
 
-## Code scaffolding
+### 2. Dashboard de Análise (`/dashboard/:id`)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+#### 📈 Métricas Simples (Cards)
+- **Total de acessos** - Soma de todas as visitas
+- **Média de acessos/dia** - Cálculo da média diária
+- **Dias com site online** - Contagem de dias ativos
+- **Dia com pico de visitas** - Data com maior tráfego
 
-```bash
-ng generate component component-name
-```
+#### 📊 Gráficos Interativos
+Visualizações usando Chart.js e Plotly:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. **Série Temporal** - Gráfico de linha com evolução de visitas ao longo do tempo
+2. **Referrers** - Gráfico de barras mostrando sites que geraram tráfego
+3. **Novos vs Retornantes** - Pizza comparando novos visitantes e recorrentes
+4. **Dispositivos** - Pizza com distribuição desktop/mobile/tablet
+5. **Geo-localização** - Mapa coroplético mundial com distribuição geográfica
+6. **Tabela de Páginas** - Análise detalhada por página com:
+   - Visualizações (pageviews)
+   - Entradas (entry)
+   - Saídas (exit)
+   - Taxa de rejeição (bounce rate)
 
-```bash
-ng generate --help
-```
+#### 🔍 Filtros de Data
+- **Últimos 7 dias**
+- **Últimos 30 dias**
+- **Últimos 90 dias**
+- **Intervalo customizado** (date range picker)
+- **Todos os tempos** (padrão)
 
-## Building
+---
 
-To build the project run:
+## 🛠️ Stack Técnica
 
-```bash
-ng build
-```
+| Tecnologia | Versão/Biblioteca | Uso |
+|------------|-------------------|-----|
+| **Angular** | 19.x | Framework principal (zoneless + signals) |
+| **TypeScript** | ~5.6.2 | Linguagem de programação |
+| **PrimeNG** | ^19.0.1 | Componentes UI (tabelas, filtros, skeletons) |
+| **Chart.js** | ^4.4.7 | Gráficos de linha/pizza/barra |
+| **ng2-charts** | ^7.0.0 | Wrapper Angular para Chart.js |
+| **Plotly.js** | ^2.35.3 | Mapas geográficos interativos |
+| **angular-plotly.js** | ^5.3.0 | Wrapper Angular para Plotly |
+| **RxJS** | ~7.8.0 | Requisições HTTP + resolvers |
+| **Python/Flask** | - | Backend API (pythonanywhere.com) |
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📂 Arquitetura do Projeto
