@@ -83,6 +83,7 @@
     }
 
     .hamburguer{
+        display: block;
         position: absolute;
         top: 20px;
         left: calc(100% + 20px);
