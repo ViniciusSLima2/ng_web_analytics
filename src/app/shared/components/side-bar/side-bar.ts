@@ -46,4 +46,15 @@ export class SideBar {
         this.sideBarContainer().nativeElement.style.transform = `translateY(${scrollY}px)`;
       });
   }
+
+  openHamburguerMenu(){
+    this.sideBarContainer().nativeElement.classList.toggle('open');
+  }
+  closeHamburguerMenu(){
+    this.sideBarContainer().nativeElement.classList.remove('open');
+  }
+
+  stopPropagation(event: any){
+    event.stopPropagation();
+  }
 }
