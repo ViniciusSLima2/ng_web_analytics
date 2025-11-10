@@ -37,21 +37,21 @@ export class TimeseriesChart {
       legend: { display: true, position: 'top' },
       tooltip: { mode: 'index', intersect: false },
       title: {
-        display: true, // 👈 ativa o título
-        text: 'Número de visitas por data', // 👈 o texto do título
+        display: true, 
+        text: 'Número de visitas por data', 
         font: {
-          size: 18, // tamanho da fonte
+          size: 18, 
           weight: 'bold',
         },
-        color: '#333', // cor do texto
+        color: '#333', 
         padding: {
           top: 10,
           bottom: 30,
         },
-        align: 'center', // 'start' | 'center' | 'end'
+        align: 'center', 
       },
       datalabels: {
-        display: false, // 👈 Desativa os labels neste gráfico
+        display: false, 
       },
     },
     interaction: { mode: 'nearest', intersect: false },

@@ -18,18 +18,18 @@ export class ReferrerChart {
       legend: { display: false },
       tooltip: { callbacks: {} },
       title: {
-        display: true, // 👈 ativa o título
-        text: 'Visitas através de sites', // 👈 o texto do título
+        display: true, 
+        text: 'Visitas através de sites',
         font: {
-          size: 18, // tamanho da fonte
+          size: 18,
           weight: 'bold',
         },
-        color: '#FFF', // cor do texto
+        color: '#FFF', 
         padding: {
           top: 10,
           bottom: 30,
         },
-        align: 'center', // 'start' | 'center' | 'end'
+        align: 'center',
       },
       datalabels: {
         color: '#FFF'

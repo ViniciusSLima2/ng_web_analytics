@@ -22,18 +22,18 @@ export class DevicesChart {
     plugins: {
       legend: { position: 'top' },
       title: {
-        display: true, // 👈 ativa o título
-        text: 'Visitas por dispositivos', // 👈 o texto do título
+        display: true, 
+        text: 'Visitas por dispositivos',
         font: {
-          size: 18, // tamanho da fonte
+          size: 18,
           weight: 'bold',
         },
-        color: '#333', // cor do texto
+        color: '#333',
         padding: {
           top: 10,
           bottom: 30,
         },
-        align: 'center', // 'start' | 'center' | 'end'
+        align: 'center',
       },
       datalabels: {
         color: '#fff',

@@ -13,24 +13,23 @@ export class NewVsReturningChart {
   engagementPieChartOptions: ChartOptions<'pie'> = {
     responsive: true,
     maintainAspectRatio: false,
-
     plugins: {
       legend: {
         position: 'top',
       },
       title: {
-        display: true, // 👈 ativa o título
-        text: 'Visitantes Novos vs. Recorrentes', // 👈 o texto do título
+        display: true,
+        text: 'Visitantes Novos vs. Recorrentes',
         font: {
-          size: 18, // tamanho da fonte
+          size: 18,
           weight: 'bold',
         },
-        color: '#333', // cor do texto
+        color: '#333',
         padding: {
           top: 10,
           bottom: 30,
         },
-        align: 'center', // 'start' | 'center' | 'end'
+        align: 'center',
       },
       datalabels: {
         color: '#fff',
@@ -53,7 +52,6 @@ export class NewVsReturningChart {
     datasets: [
       {
         data: [],
-        // backgroundColor can be an array of strings. ng2-charts will pass them to Chart.js.
         backgroundColor: ['rgba(248, 146, 78, 0.8)', 'rgba(54,162,235,0.8)'],
         hoverOffset: 6,
       },
