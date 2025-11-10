@@ -1,8 +1,12 @@
 <div class="container">
     <h1>Sites</h1>
-    <div class="cards-list">
-        @for(siteMetadata of sitesMetadata(); track siteMetadata.id) {
-            <app-site-card [siteData]="siteMetadata"></app-site-card>
-        }
-    </div>
+    @if(isDataLoading()) {
+        <app-skeleton-cards></app-skeleton-cards>
+    } @else {
+        <div class="cards-list">
+            @for(siteMetadata of sitesMetadata(); track siteMetadata.id) {
+                <app-site-card [siteData]="siteMetadata"></app-site-card>
+            }
+        </div>
+    }
 </div>
